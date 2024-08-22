@@ -34,13 +34,10 @@ async function fetchHTML(url, selector) {
     }
 }
 
-function checkValue() {
-    fetchHTML(
-        'https://www.magazinevoce.com.br/magazineoficialmagaluweb/jogo-de-tacas-de-vidro-para-sobremesa-transparente-150ml-6-pecas-haus-concept-lotus/p/238303600/ud/tcsb/',
-        '#__next > div > main > section:nth-child(6) > div.sc-bCrHVQ.hJVwij > div > div > div > div > p'
-    ).then(value => {
+function checkValue(url, selector) {
+    fetchHTML(url, selector).then(value => {
         console.log(value);
     });
 }
 
-setInterval(checkValue, 60 * 60 * 1000); //Timer de 1 hora
+module.exports = { checkValue };
